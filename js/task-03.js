@@ -1,0 +1,46 @@
+const images = [
+  {
+    url: "https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    alt: "White and Black Long Fur Cat",
+  },
+  {
+    url: "https://images.pexels.com/photos/213399/pexels-photo-213399.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    alt: "Orange and White Koi Fish Near Yellow Koi Fish",
+  },
+  {
+    url: "https://images.pexels.com/photos/219943/pexels-photo-219943.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    alt: "Group of Horses Running",
+  },
+];
+
+const galleryUl = document.querySelector(".gallery");
+
+// создадим верстку страницы в массиве
+const galleryLi = [];
+
+// переберем все элементы которые необходимо создать
+images.forEach((e) => {
+
+    // создаем лишки
+  let photoLi = document.createElement("li");
+  photoLi.classList.add("gallery-li");
+
+    // создаем элементы изображений
+  let photo = document.createElement("img");
+  photo.src = e.url;
+  photo.alt = e.alt;
+  photo.height = "400";
+  photo.width = "450";
+
+
+  // привязываем изображения в лишки внутри цикла
+   photoLi.appendChild( photo );
+
+    // добавляем каждую ли в массив
+  galleryLi.push(photoLi);
+});
+
+// прикрепляем получившуюся верстку к html документу
+galleryUl.append(...galleryLi);
+
+console.log(galleryLi);
